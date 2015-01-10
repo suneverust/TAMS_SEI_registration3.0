@@ -335,7 +335,8 @@ main (int argc, char**argv)
     pcl::IterativeClosestPoint<PointNT,PointNT> icp;
     icp.setInputSource(object_trans);
     icp.setInputTarget(scene);
-    icp.setTransformationEpsilon(1e-04);
+    icp.setMaxCorrespondenceDistance(0.2);
+    icp.setTransformationEpsilon(1e-06);
 
     icp.align(*object_final);
     std::cout << "ICP converged score:" << icp.getFitnessScore() << std::endl;
