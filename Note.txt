@@ -1,0 +1,16 @@
+1. The noteworthy about voxel_size and volume_size
+   in the point2volume process:
+   ->1<- the voxel_size of two point clouds should be same,
+         in this way, the same structure in two point clouds 
+         is the same output in two volumes.
+   ->2<- because the voxel_size is identical and the ranges
+         of two point clouds are different, the sizes of two
+         volumes are different
+   ->3<- because the volume sizes are different,
+         the sizes of Fourier Transform are different.
+   ->4<- BUT: to make sure the SEI patch of the same size 
+         correspond to the same range of structure in point clouds,
+         the size of Fourier Transform input to computation SEI
+         should be the same. If the sizes of input Fourier Transform are
+         different, then the SEI would compact some frequencies components. 
+   Conclusion: the volumes of two point clouds should be converted into the same size. 
